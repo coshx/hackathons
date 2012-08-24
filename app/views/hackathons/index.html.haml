@@ -1,0 +1,10 @@
+.row
+  .columns.six.centered
+    %h1 Hackathons
+    %ul
+    - @hackathons.each do |hackathon|
+      %li
+        = link_to hackathon.name, hackathon
+        = link_to "Edit", edit_hackathon_path(hackathon)
+        = link_to "&times;".html_safe, hackathon, :confirm => 'Are you sure?', :method => :delete
+    =link_to 'New Hackathon', new_hackathon_path, :class => "button small success"

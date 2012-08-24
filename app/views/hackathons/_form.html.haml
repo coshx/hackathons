@@ -1,0 +1,28 @@
+= form_for @hackathon do |f|
+  -if @hackathon.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@hackathon.errors.count, "error")} prohibited this hackathon from being saved:"
+      %ul
+        - @hackathon.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :starts_at
+    = f.text_field :starts_at
+  .field
+    = f.label :ends_at
+    = f.text_field :ends_at
+  .field
+    = f.label :judging_starts_at
+    = f.text_field :judging_starts_at
+  .field
+    = f.label :judging_ends_at
+    = f.text_field :judging_ends_at
+  .actions
+    = f.submit 'Save'

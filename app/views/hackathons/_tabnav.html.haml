@@ -1,0 +1,17 @@
+.row.toprow
+  .twelve.columns
+    %dl.tabs.contained
+      %dd.active= link_to 'Projects', '#projects'
+      %dd= link_to 'Awards', '#awards'
+      %dd= link_to 'Details', '#details'
+
+  %ul.tabs-content.contained
+    %li#projectsTab.active
+      = render :partial => "hackathons/projects"
+
+    %li#awardsTab
+      = render :partial => "hackathons/awards"
+
+    %li#detailsTab
+      = render :partial => "hackathons/details"
+

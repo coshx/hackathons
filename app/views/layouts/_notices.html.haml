@@ -1,0 +1,6 @@
+- flash.each do |name, msg|
+  .row
+    .ten.columns.centered
+      %div{:class => "alert-box #{name}"}
+        = msg
+        = link_to "&times;".html_safe, '#', :class => 'close'

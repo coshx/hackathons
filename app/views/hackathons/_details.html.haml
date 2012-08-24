@@ -1,0 +1,24 @@
+.row
+  .columns.ten.centered
+    %p
+      %b Name:
+      = @hackathon.name
+    %p
+      %b Description:
+      = @hackathon.description
+    %p
+      %b Starts at:
+      = @hackathon.starts_at
+    %p
+      %b Ends at:
+      = @hackathon.ends_at
+    %p
+      %b Judging starts at:
+      = @hackathon.judging_starts_at
+    %p
+      %b Judging ends at:
+      = @hackathon.judging_ends_at
+
+    = link_to 'Edit', edit_hackathon_path(@hackathon)
+    \|
+    = link_to 'Back', hackathons_path

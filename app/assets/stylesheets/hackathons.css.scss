@@ -1,0 +1,94 @@
+@import 'compass/css3';
+@import 'foundation_and_overrides.scss';
+
+.alert-box {
+  &.error {
+    background-color: $alertColor;
+  }
+  &.notice {
+    background-color: $successColor;
+  }
+}
+body {
+  background-color: rgb(225,225,225);
+}
+ul, li {
+  background-color: #FFFFFF;
+}
+textarea {
+  font-family: $bodyFontFamily;
+}
+.button {
+  font-family: $headerFontFamily;
+}
+
+.banner {
+  background-color: rgb(22,145,207);
+  width: 100%;
+}
+.title {
+  color:#FFFFFF;
+}
+.login, .logout {
+  margin-top: 18px;
+  @include box-shadow($darkEdge 2px 2px 10px);
+}
+.toprow {
+  margin-top: 20px;
+
+  dl {
+    padding-top: 14px;
+    padding-left: 14px;
+    margin-left: -14px;
+    margin-right: -14px;
+
+    @include background-image(linear-gradient(rgb(211,211,211), rgb(181,181,181)));
+    height: 51px;
+    dd {
+      //border-right: 15px solid rgba(0, 0, 0, 0.0);
+    }
+    dd a {
+      margin-right: 15px;
+      margin-bottom: 8px;
+    }
+    dd a:hover {
+      background-color: white;
+    }
+    dd.active {
+      border-top: none;
+      a {
+        border-top: 3px solid $mainColor;
+      }
+    }
+  }
+}
+.projects {
+  .columns {
+    padding: 0 2px 0 2px;
+  }
+  background-color: #FFFFFF !important;
+  
+  .reviewed {
+    padding-left: 3px;
+  }
+}
+.has-tip, .has-tip:hover {
+  border-bottom: none;
+  cursor: default;
+}
+.tabs dd:not(.active) a {
+  background-color: rgb(225,225,225);
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+  margin-top: -3px;
+}
+.awards {
+  .columns {
+    padding: 0 2px 0 2px;
+  }
+  .reviewed {
+    padding-left: 3px;
+  }
+}
