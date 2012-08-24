@@ -4,15 +4,13 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: hackathon_development
+  database: hackathons_development
 
 test:
   <<: *defaults
-  database: hackathon_test
+  database: hackathons_test
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
-  database: hackathon
-  username: <%= ENV['MONGO_USERNAME'] %>
-  password: <%= ENV['MONGO_PASSWORD'] %>
+  database: hackathons
+  uri: <%= ENV['MONGOLAB_URI'] %>
