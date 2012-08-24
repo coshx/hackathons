@@ -83,18 +83,27 @@ award.description = 'Your project contributes something valuable to the open sou
 award.prize = '$100 amazon gift card'
 award.save!
 
+
+## Projects
+
 project = Project.find_or_create_by_name('Schedule Share')
 project.abstract = 'Create a service for sharing schedule information with different clients based on multiple input calendars and tagging.'
+project.github_url = 'https://github.com/rahearn/scheduleshare'
+project.url = 'http://scheduleshare.net'
 project.save!
 hackathon.projects << project
 
 project = Project.find_or_create_by_name('Motion Diner')
 project.abstract = 'A reliable, 0-friction way to find food trucks that are open for business right now near me.'
+project.github_url = 'https://github.com/coshx/motiondiner'
+project.url = 'http://motiondiner.com'
 project.save!
 hackathon.projects << project
 
 project = Project.find_or_create_by_name('Weather Rooster')
 project.abstract = 'ranks different sources of local weather by their accuracy over time, so that people know which weather forecast they should trust. Also, individuals and TV stations can sign up to offer their predictions and compete with each other to be the most accurate.'
+project.github_url = 'https://github.com/coshx/weather-rooster'
+project.url = 'http://weatherrooster.com/'
 project.save!
 hackathon.projects << project
 
