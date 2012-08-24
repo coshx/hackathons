@@ -8,6 +8,7 @@ Hackathons::Application.routes.draw do
   resources :users
 
   match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/failure', :to => 'sessions#failure'
   match '/logout' => 'sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation:

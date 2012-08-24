@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :require_login, :only => [:create, :destroy]
+  skip_before_filter :require_login, :only => [:create, :destroy, :failure]
 
   def create
     auth = request.env['omniauth.auth']
@@ -14,4 +14,10 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => "You are now logged out!"
   end
 
+  def failure
+    msg = params[:message]
+    strategy = params[:strategy]
+
+    redirect_to root_url, :alert => "Unable to login with #{strategy}: #{msg}"
+  end
 end
