@@ -1,0 +1,47 @@
+@import 'colors.scss';
+@import 'compass/css3';
+
+.projects {
+  .columns {
+    padding: 0 2px 0 2px;
+  }
+  background-color: #FFFFFF !important;
+  
+  .reviewed {
+    padding-left: 3px;
+  }
+}
+
+.projects ul {
+  margin-left: 0px;
+  list-style-type: none;
+}
+li.project {
+  margin: 4px 4px 4px 4px;
+  padding: 4px 4px 4px 4px;
+  @include border-radius(4px, 4px);
+  
+  &.active {
+    background-color: $secondaryColor;
+  } 
+  &:hover {
+    background-color: darken($secondaryColor, 5%);
+  }
+}
+
+fieldset {
+  padding-top: 2px;
+}
+.project-details {
+  .subheader {
+    margin-top: 0px;
+    padding-top: 0px;
+    a {
+      font-size: 14px;
+    }
+  }
+}
+
+.review-form {
+  padding-top: 24px;
+}

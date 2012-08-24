@@ -1,0 +1,4 @@
+%li.project
+  =link_to project_link.name, "##{project_link.id}"
+  - if project_link.is_reviewed_by?(current_user)
+    %span.reviewed.has-tip{:title => 'Reviewed'} ✓

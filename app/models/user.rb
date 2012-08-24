@@ -10,10 +10,13 @@ class User
   many :hackathons, :in => :hackathon_ids
 
   def self.find_or_create_with_omniauth(auth)
-    user = find_by_github_name(auth['info']['nickname'])
-    user ||= create! :email => auth['info']['email'],
-                     :name  => auth['info']['name'],
-                     :image => auth['info']['image'] 
+    user = find_or_create_by_github_name(auth['info']['nickname'])
+    user.email = auth['info']['email']
+    user.name  = auth['info']['name']
+    user.image = auth['info']['image']
+    user.save!
+
+    user
   end
 
 end

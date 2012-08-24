@@ -14,6 +14,7 @@ class HackathonsController < ApplicationController
   # GET /hackathons/1.json
   def show
     @hackathon = Hackathon.find(params[:id])
+    @projects = @hackathon.projects.sort_by(&:name)
 
     respond_to do |format|
       format.html # show.html.erb

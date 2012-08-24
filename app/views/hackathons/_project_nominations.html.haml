@@ -1,0 +1,8 @@
+=render :partial => "project_nominations_mine", :locals => {:project => project}
+
+.small.button.split.dropdown
+  =link_to 'Nominate for Award', '#'
+  %span
+  %ul
+    - project.hackathon.awards.each do |award|
+      %li.nominate= link_to award.name, '#'

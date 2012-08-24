@@ -3,7 +3,8 @@
 FactoryGirl.define do
   factory :project do
     name ""
-    github_repo ""
+    github_url ""
+    url ""
     abstract ""
   end
 end

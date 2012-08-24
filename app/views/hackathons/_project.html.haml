@@ -1,0 +1,24 @@
+%li
+  .project-details{:id => project.id}
+    %h5.subheader
+      =project.name
+      - if project.url
+        =link_to '(Demo Site)', project.url, :target => '_demo'
+    - if project.github_url
+      %p
+        %strong Source: 
+        =link_to project.github_url, project.github_url, :target => "_source"
+    %p
+      %strong Abstract:
+      =project.abstract
+
+    .nominations
+      = render :partial => 'project_nominations', :locals => {:project => project}
+ 
+    .review-form
+      =form_for (review = my_review_for_project(project)) do |f|
+        =f.text_area :comments, :rows => "5", :placeholder => 'Type to add judging comments here!', :value => review.comments
+        =f.hidden_field :project_id, :value => project.id
+        =f.hidden_field :id, :value => review.id
+        .actions
+          %center= f.submit 'Review', :class => 'success button'

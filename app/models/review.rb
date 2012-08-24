@@ -1,7 +1,9 @@
 class Review
   include MongoMapper::EmbeddedDocument
 
-  one :judge
+  key :comments, String
+  key :judge_id, ObjectId
+
   belongs_to :project
 
 end

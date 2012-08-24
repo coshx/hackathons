@@ -1,8 +1,12 @@
 @import 'compass/css3';
-@import 'foundation_and_overrides.scss';
+@import 'fonts.scss';
+@import 'colors.scss';
 
 .alert-box {
   &.error {
+    background-color: $alertColor;
+  }
+  &.alert {
     background-color: $alertColor;
   }
   &.notice {
@@ -71,16 +75,7 @@ textarea {
     }
   }
 }
-.projects {
-  .columns {
-    padding: 0 2px 0 2px;
-  }
-  background-color: #FFFFFF !important;
-  
-  .reviewed {
-    padding-left: 3px;
-  }
-}
+
 .has-tip, .has-tip:hover {
   border-bottom: none;
   cursor: default;

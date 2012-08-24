@@ -1,0 +1,24 @@
+@import "colors.scss";
+@import "compass/css3";
+
+.my-nominations {
+  margin-bottom: 12px;
+}
+.my-nomination {
+  border: 3px solid $secondaryColor;
+  padding: 3px 3px 3px 3px;
+  margin-left: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  @include border-radius(4px, 4px);
+
+  a {
+    font-size: 14px;
+    color: darken($secondaryColor, 50%);
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  a:hover {
+    color: $mainColor;
+  }
+}

@@ -1,0 +1,37 @@
+$(function() {
+  $(".project-details").hide();
+  $(".project-details:first").show();
+  $(".projects li:first").addClass('active');
+
+  $(".project").click(function() {
+    var detailsDiv = $(this).find('a:first').attr("href");
+    $(".project-details").hide();
+    $(detailsDiv).show();
+    $(".project.active").removeClass('active');
+    $(this).addClass('active');
+    return false;
+  });
+
+  $(document).on('click', 'li.nominate', function(e) {
+    var award_name = $(this).text();
+    var project_id = $(".project.active").find('a').attr('href');
+    project_id = project_id.replace('#', '');
+    var post_data = {project_id : project_id, award_name : award_name}
+    $.post("<%= nominations_path %>", post_data, function(data) {
+      $("#" + project_id).find('.my-nominations')[0].innerHTML = data;
+    });
+    e.preventDefault();
+  });
+
+  $(document).on('click', '.my-nominations a', function(e) {
+    var nomination_id = this.id;
+    var project_id = $(".project.active").find('a').attr('href');
+    project_id = project_id.replace('#', '');
+    $.ajax({type: 'DELETE', url: "/nominations/" + nomination_id,
+            data: {project_id: project_id}})
+      .done(function(data) {
+        $("#" + project_id).find('.my-nominations')[0].innerHTML = data;
+      });
+    e.preventDefault();
+  });
+});

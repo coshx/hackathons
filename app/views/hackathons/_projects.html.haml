@@ -2,34 +2,14 @@
   .six.columns
     %fieldset
       %legend Project List
-      .project
-        =link_to 'Project 1', '#'
-        %span.reviewed.has-tip{:title => 'Reviewed'} ✓
-      .project
-        =link_to 'Project 2', '#'
-
+      %ul
+        = render :partial => 'project_link', :collection => @projects
+        
   .six.columns.details
     %fieldset
       %legend Project Details
-      %h5.subheader
-        =link_to 'Project 1', '#'
-      %p
-        %strong Abstract:
-        Project 1 is so awesome...
-      %p
-        %strong User Notes:
-        Please pick me as a winner. You know my project rocks your world!
+      %ul
+        = render :partial => 'project', :collection => @projects
 
-      .small.button.split.dropdown
-        =link_to 'Nominate for Award', '#'
-        %span
-        %ul
-          %li= link_to 'Creativity', '#'
-          %li= link_to 'Notable Teamwork', '#'
-
-      %p
-        %form
-          %textarea{:rows => "5"}
-            Type to add judging comments here!
-      %p
-        %center= link_to 'Mark as Reviewed', '#', :class => 'success button'
+%script(type="text/javascript")
+  = render :partial => "hackathons/projects.js"

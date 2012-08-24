@@ -1,11 +1,10 @@
 Hackathons::Application.routes.draw do
   resources :awards
-
   resources :projects
-
   resources :hackathons
-
   resources :users
+  resources :reviews
+  resources :nominations
 
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'

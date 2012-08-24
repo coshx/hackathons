@@ -1,8 +1,14 @@
 class Nomination
   include MongoMapper::EmbeddedDocument
 
-  one :judge
-  one :award
-  belongs_to :project
+  key :judge_id, ObjectId
+  key :award_id, ObjectId
 
+  def judge
+    User.find(judge_id)
+  end
+
+  def award
+    Award.find(award_id)
+  end
 end
