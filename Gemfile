@@ -9,7 +9,7 @@ gem 'bson_ext'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mongo_mapper'
-gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+gem 'omniauth-github' #, :git => 'git://github.com/intridea/omniauth-github.git'
 gem 'thin'
 
 # Gems used only for assets and not required
