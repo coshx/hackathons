@@ -6,6 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'bson_ext'
+gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mongo_mapper'
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
@@ -14,7 +15,6 @@ gem 'thin'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'haml-rails'
   gem 'sass-rails',      '~> 3.2.3'
   gem 'coffee-rails',    '~> 3.2.1'
   gem 'compass-rails',   '~> 1.0.3'
