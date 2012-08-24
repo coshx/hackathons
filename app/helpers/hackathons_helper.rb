@@ -16,4 +16,5 @@ module HackathonsHelper
       html.html_safe
     end
   end
+
 end

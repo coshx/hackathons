@@ -1,24 +1,24 @@
 .row
-  .columns.ten.centered
+  .columns.ten.end
     %p
-      %b Name:
+      %strong Name:
       = @hackathon.name
     %p
-      %b Description:
+      %strong Description:
       = @hackathon.description
     %p
-      %b Starts at:
+      %strong Starts at:
       = @hackathon.starts_at
     %p
-      %b Ends at:
+      %strong Ends at:
       = @hackathon.ends_at
     %p
-      %b Judging starts at:
+      %strong Judging starts at:
       = @hackathon.judging_starts_at
     %p
-      %b Judging ends at:
+      %strong Judging ends at:
       = @hackathon.judging_ends_at
 
-    = link_to 'Edit', edit_hackathon_path(@hackathon)
-    \|
-    = link_to 'Back', hackathons_path
+    %p
+      %strong Judges:
+      = @hackathon.judges.map{|j| link_to j.github_name, "https://github.com/#{j.github_name}", :target => '_gh_user'}.join(', &nbsp;').html_safe

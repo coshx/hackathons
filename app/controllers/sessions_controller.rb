@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
     user = User.find_or_create_with_omniauth(auth)
 
     session[:user_id] = user.id
-    redirect_to hackathons_url, :notice => "You are now signed in!"
+    if user.hackathons.count > 0
+      redirect_to user.hackathons.first, :notice => "You are now signed in!"
+    else
+      redirect_to hackathons_url, :notice => "You are now signed in!"
+    end
   end
 
   def destroy

@@ -1,0 +1,29 @@
+@import 'colors.scss';
+@import 'compass/css3';
+
+.awards ul {
+  margin-left: 0px;
+  list-style-type: none;
+}
+li.award {
+  margin: 4px 4px 4px 4px;
+  padding: 4px 4px 4px 4px;
+  @include border-radius(4px, 4px);
+  
+  &.active {
+    background-color: $secondaryColor;
+  } 
+  &:hover {
+    background-color: darken($secondaryColor, 5%);
+  }
+}
+
+li.award-details {
+  .subheader {
+    margin-top: 0px;
+    padding-top: 0px;
+    a {
+      font-size: 14px;
+    }
+  }
+}

@@ -2,7 +2,7 @@
   .ten.columns
     .row
       .six.columns.end
-        %h3.header.title Coshx Hackathons
+        %h3.header.title #{content_for?(:title) ? yield(:title) : 'Coshx Hackathons'}
   .two.columns
     - if current_user
       =link_to 'Logout', logout_path, :class => 'success button logout'

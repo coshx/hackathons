@@ -1,3 +1,15 @@
+function refreshNominations() {
+  $.get('/nominations', {hackathon_id: "<%= @hackathon.id.to_s %>"}, function(data) {
+    $('.awarded').remove();
+    $.each(data, function(award_id) {
+      var parent = $("a[href='#" + award_id +"']").parent();
+      $.each(data[award_id], function(idx, project_name) {
+        $(parent).append('<span class="awarded has-tip" title="Nominated ' + project_name + '">&#x2713;</span>');
+      });
+    });
+  });
+}
+
 $(function() {
   $(".project-details").hide();
   $(".project-details:first").show();
@@ -34,4 +46,24 @@ $(function() {
       });
     e.preventDefault();
   });
+
+  $('.award-details').hide();
+  $('.award-details:first').show();
+  $("li.award:first").addClass('active');
+  $(document).on('click', '.award', function(e) {
+    var detailsDiv = $(this).find('a:first').attr('href');
+    $('.award-details').hide();
+    $(detailsDiv).show();
+    $('.award.active').removeClass('active');
+    $(this).addClass('active');
+    return false;
+  });
+
+  $("a[href='#awards']").on('click', function(e) {
+    refreshNominations();
+  });
+  
+  refreshNominations();
 });
+
+

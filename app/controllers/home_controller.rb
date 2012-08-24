@@ -3,7 +3,11 @@ class HomeController < ApplicationController
   
   def index
     if current_user
-      redirect_to :controller => 'hackathons', :action => 'index'
+      if current_user.hackathons.count > 0
+        redirect_to current_user.hackathons.first
+      else
+        redirect_to :controller => 'hackathons', :action => 'index'
+      end
     end
   end
 end

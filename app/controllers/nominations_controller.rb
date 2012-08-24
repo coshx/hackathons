@@ -1,5 +1,23 @@
 class NominationsController < ApplicationController
-  before_filter :load_resources
+  before_filter :load_resources, :except => :index
+
+  def index
+    @hackathon = Hackathon.find(params['hackathon_id'])
+
+    # key by award_id for now
+    nominations = {}
+
+    @hackathon.projects.each do |project|
+      project.nominations.each do |nomination|
+        if nomination.judge_id == current_user.id
+          nominations[nomination.award_id] ||= []
+          nominations[nomination.award_id] << project.name
+        end
+      end
+    end
+
+    render :json => nominations
+  end
 
   def create
     unless @hackathon.is_judge?(current_user) || @hackathon.is_admin?(current_user)
