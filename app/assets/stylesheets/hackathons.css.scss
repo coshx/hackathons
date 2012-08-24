@@ -11,6 +11,9 @@
 }
 body {
   background-color: rgb(225,225,225);
+  p {
+    line-height: 1.2em;
+  }
 }
 ul, li {
   background-color: #FFFFFF;
@@ -26,12 +29,18 @@ textarea {
   background-color: rgb(22,145,207);
   width: 100%;
 }
-.title {
+.header.title {
+  font-family: $headerFontFamily;
   color:#FFFFFF;
 }
+
 .login, .logout {
-  margin-top: 18px;
+  margin-top: 8px;
   @include box-shadow($darkEdge 2px 2px 10px);
+}
+.login {
+  background: url(image-path('octocat.png')) no-repeat left;
+  padding-left: 32px;
 }
 .toprow {
   margin-top: 20px;

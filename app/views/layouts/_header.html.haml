@@ -1,12 +1,11 @@
 .row.banner
   .ten.columns
     .row
-      .six.columns
-        %h3.subheader.title Coshx Hackathon
-        .title Auguest 24, 2012
+      .six.columns.end
+        %h3.header.title Coshx Hackathons
   .two.columns
     - if current_user
       =link_to 'Logout', logout_path, :class => 'success button logout'
     - else
-      =link_to 'Login with Github', '/auth/github', :class => 'success button login'
+      =link_to 'Login', '/auth/github', :class => 'success button login'
 
