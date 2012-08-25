@@ -29,6 +29,11 @@ user.name = 'Joe Mellin'
 hackathon.judges << user
 hackathon.save!
 
+user = User.find_or_create_by_github_name('steveklabnik')
+user.name = 'Steve Klabnik'
+hackathon.judges << user
+hackathon.save!
+
 user = User.find_or_create_by_github_name('kylefiedler')
 user.name = 'Kyle Fiedler'
 hackathon.judges << user
