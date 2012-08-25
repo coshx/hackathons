@@ -10,9 +10,7 @@ hackathon.save!
 
 # admin
 user = User.find_or_create_by_github_name('btaitelb')
-hackathon.judges << user
 hackathon.admins << user
-hackathon.participants << user
 hackathon.save!
 
 # judges
