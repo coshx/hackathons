@@ -1,4 +1,6 @@
 class HackathonsController < ApplicationController
+  before_filter :check_authorized, :except => [:index, :show, :new, :create]
+
   # GET /hackathons
   # GET /hackathons.json
   def index
@@ -42,6 +44,8 @@ class HackathonsController < ApplicationController
   # POST /hackathons.json
   def create
     @hackathon = Hackathon.new(params[:hackathon])
+    @hackathon.admins << current_user
+    @hackathon.save!
 
     respond_to do |format|
       if @hackathon.save
@@ -74,11 +78,19 @@ class HackathonsController < ApplicationController
   # DELETE /hackathons/1.json
   def destroy
     @hackathon = Hackathon.find(params[:id])
-    @hackathon.destroy
+    @hackathon.delete
 
     respond_to do |format|
       format.html { redirect_to hackathons_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+  def check_authorized
+    hackathon = Hackathon.find(params[:id])
+    unless hackathon.is_admin?(current_user)
+      redirect_to hackathon, :alert => 'Sorry, but you don\'t have permission to do that.'
     end
   end
 end
