@@ -59,7 +59,7 @@ award.prize = 'a spirit of your choosing, up to $20 in value... "oh alcohol, the
 award.save!
 
 award = hackathon.awards.find_or_create_by_name('MVMVP')
-award.description = 'Congratulations, you achieved your value proposition in a short timeframe! Start blogging about it and getting it out to others who find it useful. Whats that? Oh, it\'s just an investment firm calling, tell them to take a number and you\'ll call them back after the betabeat and techcrunch interviews. (this won\'t be awarded every hackathon, as it is saved for projects that the judges feel should move forward as a product)'
+award.description = 'Most Valuable Minimum Viable Product! Congratulations, you achieved your value proposition in a short timeframe! Start blogging about it and getting it out to others who find it useful. Whats that? Oh, it\'s just an investment firm calling, tell them to take a number and you\'ll call them back after the betabeat and techcrunch interviews. (this won\'t be awarded every hackathon, as it is saved for projects that the judges feel should move forward as a product)'
 award.prize = '$25k internal budget to launch this startup. Engineering hours will be billed at $80/hr out of this budget, and the rest is at your discretion.'
 award.save!
 

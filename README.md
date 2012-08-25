@@ -39,8 +39,8 @@ Team
  - Edi Gil - UI / mock-ups (a few days before hackathon)
  - Ben Taitelbaum - back-end, javascript, css tweaks (during hackathon)
 
-Future
-------
+Future Work
+-----------
 
  We want to keep working on this for future hackathons. We had to prioritize 
  the judging component for this version, but in the future, we want to allow
@@ -52,3 +52,7 @@ Future
  to get a little messy, especially with coordinating data between tabs. This is a 
  perfect use-case for a client-side MVC framework, so the next version will 
  need to use something like ember.
+
+ Similarly, a future version should also use some proper RBAC tool like cancan,
+ rather than custom before_filters (although using custom filters, and a simple 
+ omniauth mechanism did feel quite liberating).
