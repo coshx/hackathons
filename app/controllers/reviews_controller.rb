@@ -18,7 +18,6 @@ class ReviewsController < ApplicationController
       flash[:error] = 'Sorry, you cannot edit other judges\' reviews'
     else
       @review.update_attributes(params['review'])
-      @project.reviews << @review
       @project.save!
       flash[:notice] = "Successfully updated review for #{@project.name}!"
     end
