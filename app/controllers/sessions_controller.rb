@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     if user.hackathons.count > 0
       redirect_to user.hackathons.first, :notice => "You are now signed in!"
-    else
-      redirect_to hackathons_url, :notice => "You are now signed in!"
+    elsif Hackathon.count > 0
+      redirect_to Hackathon.first(:order => :created_at.desc), :notice => "You are now signed in!"
     end
   end
 

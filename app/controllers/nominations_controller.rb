@@ -4,14 +4,26 @@ class NominationsController < ApplicationController
   def index
     @hackathon = Hackathon.find(params['hackathon_id'])
 
-    # key by award_id for now
+    # key by award_id
     nominations = {}
 
-    @hackathon.projects.each do |project|
-      project.nominations.each do |nomination|
-        if nomination.judge_id == current_user.id
+    # TODO: move this logic into a Presenter?
+
+    if @hackathon.judging_ends_at < Time.current
+      # judging is over, show everyone's votes
+      @hackathon.projects.each do |project|
+        project.nominations.each do |nomination|
           nominations[nomination.award_id] ||= []
           nominations[nomination.award_id] << project.name
+        end
+      end
+    else
+      @hackathon.projects.each do |project|
+        project.nominations.each do |nomination|
+          if nomination.judge_id == current_user.id
+            nominations[nomination.award_id] ||= []
+            nominations[nomination.award_id] << project.name
+          end
         end
       end
     end
