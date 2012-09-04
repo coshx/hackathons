@@ -1,8 +1,11 @@
 @import 'compass/css3';
 @import 'fonts.scss';
 @import 'colors.scss';
+@import 'animate.sass';
 
 .alert-box {
+  @include animate(fadeOut, 5s, 10s);
+
   &.error {
     background-color: $alertColor;
   }
