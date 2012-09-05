@@ -6,4 +6,7 @@ class Review
 
   belongs_to :project
 
+  def judge
+    User.find(judge_id)
+  end
 end

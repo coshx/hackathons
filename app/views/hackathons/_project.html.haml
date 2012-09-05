@@ -14,11 +14,6 @@
 
     .nominations
       = render :partial => 'project_nominations', :locals => {:project => project}
- 
-    .review-form
-      =form_for (review = my_review_for_project(project)) do |f|
-        =f.text_area :comments, :rows => "5", :placeholder => 'Type to add judging comments here!', :value => review.comments
-        =f.hidden_field :project_id, :value => project.id
-        =f.hidden_field :id, :value => review.id
-        .actions
-          %center= f.submit 'Submit Review', :class => 'success button'
+
+    .reviews
+      = render :partial => 'project_reviews', :locals => {:project => project}

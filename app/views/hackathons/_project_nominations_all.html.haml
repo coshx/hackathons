@@ -1,0 +1,6 @@
+%strong All Nominations:
+%ul
+  - project.nominations.each do |nomination|
+    %li 
+      #{nomination.award.name}
+      (#{nomination.judge.github_name})

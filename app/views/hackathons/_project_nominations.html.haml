@@ -1,8 +1,11 @@
-=render :partial => "project_nominations_mine", :locals => {:project => project}
+- if project.hackathon.judging_ends_at < Time.current
+  =render :partial => "project_nominations_all", :locals => {:project => project}
+- elsif project.hackathon.is_judge?(current_user)
+  =render :partial => "project_nominations_mine", :locals => {:project => project}
 
-.small.button.split.dropdown
-  =link_to 'Nominate for Award', '#'
-  %span
-  %ul
-    - project.hackathon.awards.each do |award|
-      %li.nominate= link_to award.name, '#'
+  .small.button.split.dropdown
+    =link_to 'Nominate for Award', '#'
+    %span
+    %ul
+      - project.hackathon.awards.each do |award|
+        %li.nominate= link_to award.name, '#'
